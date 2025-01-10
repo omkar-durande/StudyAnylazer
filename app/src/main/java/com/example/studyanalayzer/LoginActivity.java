@@ -1,6 +1,11 @@
 package com.example.studyanalayzer;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +22,21 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            //v.setPadding(systemBars.left,0, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button join ;
+        join = findViewById(R.id.login_join);
+
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent home  = new Intent(LoginActivity.this , Home.class);
+                startActivity(home);
+            }
+        });
+
+
+
     }
 }

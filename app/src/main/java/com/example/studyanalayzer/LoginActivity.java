@@ -1,10 +1,8 @@
 package com.example.studyanalayzer;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -27,11 +25,12 @@ public class LoginActivity extends AppCompatActivity {
         });
         Button join ;
         join = findViewById(R.id.login_join);
+        Intent home  = new Intent(LoginActivity.this , Fregment_holder.class);
 
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home  = new Intent(LoginActivity.this , Home.class);
+
                 startActivity(home);
             }
         });

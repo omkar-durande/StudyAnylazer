@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".Fregment_holder">
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="420dp"
@@ -127,11 +129,17 @@
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
     <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" >
+
+    </FrameLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

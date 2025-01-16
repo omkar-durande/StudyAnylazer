@@ -23,7 +23,7 @@ public class Fregment_holder extends AppCompatActivity {
         setContentView(R.layout.activity_fregment_holder);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, 0, systemBars.right, 0);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
@@ -34,15 +34,15 @@ public class Fregment_holder extends AppCompatActivity {
         scorecard = findViewById(R.id.scoreNav);
 
         //default
-        loadFragment(new Home());
-        home.setImageResource(R.drawable.homedark);
+        loadFragment(new Home(),home,R.drawable.homedark);
+
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetNavigationButton();
-                loadFragment(new Home());
-                loadNavigationButton(home ,R.drawable.homedark);
+
+                loadFragment(new Home(),home ,R.drawable.homedark);
+
             }
         });
 
@@ -51,38 +51,46 @@ public class Fregment_holder extends AppCompatActivity {
         note.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetNavigationButton();
-                loadFragment(new Notes());
-                loadNavigationButton(note ,R.drawable.notesdark);
+
+                loadFragment(new Notes(),note ,R.drawable.notesdark);
+
             }
         });
 
         pomodrome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetNavigationButton();
-                loadFragment(new Pomodrome());
-                loadNavigationButton(pomodrome,R.drawable.pomodromedark);
+                loadFragment(new Pomodrome(),pomodrome,R.drawable.pomodromedark);
+
             }
         });
 
         scorecard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetNavigationButton();
-                loadFragment(new Scorecard());
-                loadNavigationButton(scorecard,R.drawable.scorecarddark);
+                loadFragment(new Scorecard(),scorecard,R.drawable.scorecarddark);
+
             }
         });
 
     }
-    public  void loadFragment(Fragment fragament)
-    {
+    public void loadFragment(Fragment fragment,ImageView view,int image) {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (currentFragment != null && currentFragment.getClass().equals(fragment.getClass())) {
+            return; // Fragment is already loaded
+        }
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container,fragament);
+        fragmentTransaction.replace(R.id.container, fragment);
+
+
+        resetNavigationButton();
+
+        loadNavigationButton(view,image);
         fragmentTransaction.commit();
+
     }
+
     public  void loadNavigationButton(ImageView view,int image)
     {
         view.setImageResource(image);

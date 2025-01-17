@@ -23,7 +23,7 @@ public class Fregment_holder extends AppCompatActivity {
         setContentView(R.layout.activity_fregment_holder);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, systemBars.top+50, systemBars.right, systemBars.bottom);
             return insets;
         });
 

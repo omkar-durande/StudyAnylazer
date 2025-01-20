@@ -1,4 +1,4 @@
-package com.example.studyanalayzer;
+package com.example.studyanalayzer.home_page_subject;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.studyanalayzer.R;
 
 import java.util.ArrayList;
 

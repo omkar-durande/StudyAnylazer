@@ -14,25 +14,18 @@
         android:layout_height="wrap_content"
         android:elevation="200dp">
 
-        <Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:titleMarginStart="30dp"
+            app:title="StudyAnalyzer"
+            app:titleTextColor="@color/black"
 
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EduEngage"
-                android:textStyle="bold"
-                android:textSize= "24dp"
-                android:layout_marginStart="50dp"
-
-                />
 
 
-        </Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -50,12 +43,15 @@
         <!-- First RecyclerView -->
 
         <TextView
+            android:id="@+id/teacherScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:text="Teacher Score "
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -70,14 +66,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
-           />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/teacherScore" />
+
         <TableLayout
+            android:id="@+id/tableformcq"
             app:layout_constraintTop_toBottomOf="@id/homeSubRecycler"
-            app:layout_constraintBottom_toTopOf="@id/homeNotesRecycleView"
+            app:layout_constraintBottom_toTopOf="@id/notestextview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="match_parent"
@@ -85,6 +83,7 @@
             >
             <TableRow
                 android:paddingStart="10sp"
+                android:paddingBottom="10dp"
 
                 >
                 <TextView
@@ -104,17 +103,35 @@
             </TableRow>
 
         </TableLayout>
+
+        <TextView
+            android:id="@+id/notestextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Notes"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tableformcq"
+            app:layout_constraintBottom_toTopOf="@+id/homeNotesRecycleView" />
         <!-- Second RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeNotesRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/homeSubRecycler"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notestextview" />
 
+        <CalendarView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeNotesRecycleView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

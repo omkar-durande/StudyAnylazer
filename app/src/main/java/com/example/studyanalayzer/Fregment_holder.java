@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,7 +27,6 @@ public class Fregment_holder extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top+50, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
         home = findViewById(R.id.homeNav);
         note = findViewById(R.id.notesNav);

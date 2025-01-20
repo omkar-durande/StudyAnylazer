@@ -2,6 +2,8 @@ package com.example.studyanalayzer;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -74,9 +76,17 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.homeSubRecycler);
-         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL ,false));
-         homeSubRecycAd homeSubRecycAdapter = new homeSubRecycAd(getContext(),arrHomePageSubjectsobj);
-         recyclerView.setAdapter(homeSubRecycAdapter);
+        Toolbar HomeToolbar = view.findViewById(R.id.toolbar);
+        AppCompatActivity activity = (AppCompatActivity) requireActivity();
+        activity.setSupportActionBar(HomeToolbar);
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL ,false));
+        homeSubRecycAd homeSubRecycAdapter = new homeSubRecycAd(getContext(),arrHomePageSubjectsobj);
+        recyclerView.setAdapter(homeSubRecycAdapter);
         homePageSubject homePageSubjectObj = new homePageSubject();
 
 

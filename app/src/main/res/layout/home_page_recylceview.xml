@@ -29,8 +29,9 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="104dp"
-                    android:layout_height="103dp"
+                    android:id="@+id/cardView2"
+                    android:layout_width="109dp"
+                    android:layout_height="120dp"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +39,8 @@
                     app:layout_constraintHorizontal_bias="0.141"
                     app:layout_constraintStart_toStartOf="parent"
 
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25">
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -46,12 +48,68 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/kevinsystrom" />
 
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/kevinsystrom" />
+
                 </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/circularProgressIndicator"
+                    android:layout_width="108dp"
+                    android:layout_height="104dp"
+                    android:elevation="10dp"
+                    android:max="100"
+                    android:progress="50"
+
+                    app:indicatorSize="80sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.784"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.783">
+
+
+                </com.google.android.material.progressindicator.CircularProgressIndicator>
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50 % "
+                    app:layout_constraintBottom_toBottomOf="@+id/circularProgressIndicator"
+                    app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+                    app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+                    app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator" />
+
+                <TextView
+                    android:id="@+id/TearcherName"
+                    android:layout_width="123dp"
+                    android:layout_height="28dp"
+                    android:text="Mr Mane Sir"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.846"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.206" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="95dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="122dp"
+                    android:text="Advanced Java"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/TearcherName" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

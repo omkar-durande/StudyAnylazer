@@ -1,4 +1,4 @@
-package com.example.studyanalayzer.home_page_note;
+package com.example.studyanalayzer.homefragment.home_page_note;
 
 public class homePageNotes {
     int image;

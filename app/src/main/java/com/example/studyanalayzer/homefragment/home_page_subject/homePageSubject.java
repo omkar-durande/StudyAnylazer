@@ -1,4 +1,4 @@
-package com.example.studyanalayzer.home_page_subject;
+package com.example.studyanalayzer.homefragment.home_page_subject;
 
 public class homePageSubject {
 

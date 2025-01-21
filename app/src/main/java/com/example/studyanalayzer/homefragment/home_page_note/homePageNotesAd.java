@@ -1,9 +1,10 @@
-package com.example.studyanalayzer.home_page_subject;
+package com.example.studyanalayzer.homefragment.home_page_note;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,21 +13,23 @@ import com.example.studyanalayzer.R;
 
 import java.util.ArrayList;
 
-public class homeSubRecycAd extends RecyclerView.Adapter<homeSubRecycAd.ViewHolder> {
-
-    Context context ;
-    ArrayList<homePageSubject> hm;
+public class homePageNotesAd extends RecyclerView.Adapter<homePageNotesAd.ViewHolder> {
 
 
-    public homeSubRecycAd(Context home, ArrayList<homePageSubject> arrHomePageSubjectsobj) {
-        this.context = home;
-        this.hm = arrHomePageSubjectsobj;
+    Context context;
+    ArrayList<homePageNotes> homePageNotes ;
+    public  homePageNotesAd(Context context,ArrayList<homePageNotes> homePageNotes)
+    {
+        this.context = context;
+        this.homePageNotes = homePageNotes;
     }
 
     @NonNull
     @Override
+
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.home_page_recylceview,parent,false);
+
+        View view  = LayoutInflater.from(context).inflate(R.layout.home_page_notes,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -34,26 +37,20 @@ public class homeSubRecycAd extends RecyclerView.Adapter<homeSubRecycAd.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
     }
-
-
 
     @Override
     public int getItemCount() {
-        return hm.size();
+        return homePageNotes.size();
     }
-
-
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView)
+        {
             super(itemView);
         }
-    }
 
+
+    }
 }

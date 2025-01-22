@@ -4,11 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studyanalayzer.notesfragment.Notes;
 import com.example.studyanalayzer.R;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 
@@ -18,6 +25,7 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
 
     Context context;
     ArrayList<targetAchiver> arrtargetAchivers;
+    ImageView home ,note , score ,pomodrome;
     public targetDailyMonthlyAd(Context context,ArrayList<targetAchiver> arrtargetAchivers)
     {
         this.arrtargetAchivers = arrtargetAchivers;
@@ -29,6 +37,7 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.targetrecycleview,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
+
         return viewHolder;
     }
 
@@ -37,6 +46,22 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
         holder.textViewTargetDayMonth.setText(arrtargetAchivers.get(position).Daily);
         holder.remining.setText(arrtargetAchivers.get(position).achivedPercentage);
         holder.achived.setProgress(arrtargetAchivers.get(position).progess);
+        holder.targetView.setOnClickListener(v -> {
+            // Replace fragment when the item is clicked
+            Fragment fragment = new Notes(); // Replace with your actual fragment class
+            if (context instanceof FragmentActivity) {
+                FragmentActivity activity = (FragmentActivity) context;
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.container, fragment);
+                fragmentTransaction.addToBackStack(null); // Optional: add to back stack
+                fragmentTransaction.commit();
+                note = ((FragmentActivity) context).findViewById(R.id.notesNav);
+                note.setImageResource(R.drawable.notesdark);
+                home =((FragmentActivity) context).findViewById(R.id.homeNav);
+                home.setImageResource(R.drawable.homelight);
+            }
+        });
 
     }
 
@@ -49,12 +74,19 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
 
         TextView textViewTargetDayMonth,remining ;
         CircularProgressIndicator achived;
+        CardView targetView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            targetView = itemView.findViewById(R.id.targetrecycleview);
             textViewTargetDayMonth = itemView.findViewById(R.id.textViewTargetDayMonth);
             remining = itemView.findViewById(R.id.completement);
             achived = itemView.findViewById(R.id.progressIndicator);
+            
+
+        }
+
+        public CardView getTargetView() {
+            return targetView;
         }
     }
 }

@@ -1,12 +1,22 @@
-package com.example.studyanalayzer;
+package com.example.studyanalayzer.notesfragment;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.studyanalayzer.R;
+import com.example.studyanalayzer.notesfragment.noteSubjectSection.NotesSubject;
+import com.example.studyanalayzer.notesfragment.noteSubjectSection.notesSubjectRecycle;
+import com.example.studyanalayzer.notesfragment.notechapter.NoteChapter;
+import com.example.studyanalayzer.notesfragment.notechapter.NotesChapteReAd;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +27,8 @@ public class Notes extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    ArrayList<NotesSubject> arrNotesSubject = new ArrayList<>(); ;
+    ArrayList<NoteChapter> arrNoteChapter = new ArrayList<>();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -59,6 +71,32 @@ public class Notes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notes, container, false);
+
+
+
+
+
+        View view =inflater.inflate(R.layout.fragment_notes, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.noteContainer);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        notesSubjectRecycle notesSubjectRecycleadpator = new notesSubjectRecycle(getContext(),arrNotesSubject);
+        recyclerView.setAdapter(notesSubjectRecycleadpator);
+
+        arrNotesSubject.add(new NotesSubject(R.drawable.java ,"Java Notes" ,"Mr Mane Sir"));
+        arrNotesSubject.add(new NotesSubject(R.drawable.java ,"c++ Notes" ,"Mr shinde Sir"));
+
+        RecyclerView recyclerViewChapter = view.findViewById(R.id.chapterContainer);
+        recyclerViewChapter.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        NotesChapteReAd notesChapteReAd = new NotesChapteReAd(getContext(),arrNoteChapter);
+        recyclerViewChapter.setAdapter(notesChapteReAd);
+
+        arrNoteChapter.add(new NoteChapter());
+        arrNoteChapter.add(new NoteChapter());
+        arrNoteChapter.add(new NoteChapter());
+
+
+        return view;
     }
 }

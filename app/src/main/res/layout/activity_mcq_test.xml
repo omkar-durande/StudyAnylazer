@@ -71,8 +71,8 @@
                 <RadioButton
 
                     android:id="@+id/radioButton2"
-                    android:layout_width="149dp"
-                    android:layout_height="51dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="RadioButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,33 +83,33 @@
 
                 <RadioButton
                     android:id="@+id/radioButton1"
-                    android:layout_width="140dp"
-                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="191dp"
                     android:layout_marginTop="11dp"
                     android:text="RadioButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.475"
+                    app:layout_constraintHorizontal_bias="0.455"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView6"
-                    app:layout_constraintVertical_bias="0.107" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <RadioButton
-                    android:layout_width="134dp"
-                    android:layout_height="58dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="RadioButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.884"
+                    app:layout_constraintHorizontal_bias="0.857"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/radioButton1"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <RadioButton
                     android:id="@+id/radioButton"
-                    android:layout_width="164dp"
-                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="RadioButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +123,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/mcqPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Previous"
@@ -136,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/mcqNext"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.644"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/mcqPrevious"
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
 

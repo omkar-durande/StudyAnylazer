@@ -132,7 +132,7 @@ public class Home extends Fragment {
 
 
 
-        View  homeNotesView = inflater.inflate(R.layout.home_page_notes,container,false);
+       // View  homeNotesView = inflater.inflate(R.layout.home_page_notes,container,false);
 
         RecyclerView homeNotesRecycleView = view.findViewById(R.id.homeNotesRecycleView);
         homeNotesRecycleView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));

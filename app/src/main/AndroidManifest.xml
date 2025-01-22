@@ -19,7 +19,7 @@
             android:name=".Pomodrome"
             android:exported="false" />
         <activity
-            android:name=".Notes"
+            android:name=".notesfragment.Notes"
             android:exported="false" />
         <activity
             android:name=".Fregment_holder"

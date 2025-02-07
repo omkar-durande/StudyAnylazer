@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:contentDescription="@string/action_sign_in">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:layout_width="318dp"
@@ -29,7 +29,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/homePageScore"
+                    android:id="@+id/cardView2"
                     android:layout_width="109dp"
                     android:layout_height="120dp"
                     app:cardCornerRadius="50dp"
@@ -83,7 +83,7 @@
                     app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator" />
 
                 <TextView
-                    android:id="@+id/TearcherName"
+                    android:id="@+id/TearcherNameScore"
                     android:layout_width="123dp"
                     android:layout_height="28dp"
                     android:text="Mr Mane Sir"
@@ -106,8 +106,8 @@
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/homePageScore"
-                    app:layout_constraintStart_toStartOf="@+id/homePageScore"
+                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
                     app:layout_constraintTop_toBottomOf="@+id/TearcherName" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

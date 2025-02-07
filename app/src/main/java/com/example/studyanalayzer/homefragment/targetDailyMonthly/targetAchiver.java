@@ -1,4 +1,4 @@
-package com.example.studyanalayzer.homefragment.home_page_note.targetDailyMonthly;
+package com.example.studyanalayzer.homefragment.targetDailyMonthly;
 
 public class targetAchiver {
     int progess;

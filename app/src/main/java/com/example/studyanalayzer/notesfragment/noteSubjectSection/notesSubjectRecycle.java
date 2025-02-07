@@ -4,8 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,12 +44,12 @@ public class notesSubjectRecycle extends RecyclerView.Adapter<notesSubjectRecycl
         holder.image.setImageResource(arrNoteSubject.get(position).image);
         holder.subjectName.setText(arrNoteSubject.get(position).subjectName);
         holder.sirName.setText(arrNoteSubject.get(position).teacherName);
+
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image;
-        TextView subjectName,sirName;
+        ImageView image;        TextView subjectName,sirName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.subjectNotesImage);

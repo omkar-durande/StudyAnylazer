@@ -1,64 +1,100 @@
 package com.example.studyanalayzer;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Pomodrome#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Pomodrome extends Fragment {
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import com.example.studyanalayzer.R;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+import java.util.Locale;
 
-    public Pomodrome() {
-        // Required empty public constructor
-    }
+public class
+Pomodrome extends Fragment {
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Pomodrome.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Pomodrome newInstance(String param1, String param2) {
-        Pomodrome fragment = new Pomodrome();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    Button startToFocus;
+    boolean clockIsStart = false;
+    TextView timerText;
+    CircularProgressIndicator timeProgress;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private CountDownTimer countDownTimer;
+    private static final long START_TIME_IN_MILLIS = 1500000; // 25 minutes in milliseconds
+    private long timeLeftInMillis = START_TIME_IN_MILLIS; // Remaining time
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pomodrome, container, false);
+        View view = inflater.inflate(R.layout.fragment_pomodrome, container, false);
+
+        // Initialize views
+        startToFocus = view.findViewById(R.id.starttoFocus);
+        timerText = view.findViewById(R.id.text);
+        timeProgress = view.findViewById(R.id.timeProgress);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycletime);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Initialize progress indicator
+        timeProgress.setMax((int) (START_TIME_IN_MILLIS / 1000));
+        timeProgress.setProgress((int) (timeLeftInMillis / 1000));
+
+        // Set up start button
+        startToFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!clockIsStart) {
+                    startTimer();
+                    startToFocus.setText("Pause");
+                } else {
+                    pauseTimer();
+                    startToFocus.setText("Start");
+                }
+                clockIsStart = !clockIsStart;
+            }
+        });
+
+        updateTimerText();
+        return view;
+    }
+
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateTimerText();
+                timeProgress.setProgress((int) (timeLeftInMillis / 1000));
+            }
+
+            @Override
+            public void onFinish() {
+                clockIsStart = false;
+                startToFocus.setText("Start");
+                timeLeftInMillis = START_TIME_IN_MILLIS; // Reset timer
+                timeProgress.setProgress((int) (START_TIME_IN_MILLIS / 1000));
+                updateTimerText();
+            }
+        }.start();
+    }
+
+    private void pauseTimer() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    private void updateTimerText() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        timerText.setText(timeFormatted);
     }
 }

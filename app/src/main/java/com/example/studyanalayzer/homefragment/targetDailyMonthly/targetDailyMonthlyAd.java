@@ -1,4 +1,4 @@
-package com.example.studyanalayzer.homefragment.home_page_note.targetDailyMonthly;
+package com.example.studyanalayzer.homefragment.targetDailyMonthly;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studyanalayzer.Pomodrome;
 import com.example.studyanalayzer.notesfragment.Notes;
 import com.example.studyanalayzer.R;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
@@ -48,7 +49,7 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
         holder.achived.setProgress(arrtargetAchivers.get(position).progess);
         holder.targetView.setOnClickListener(v -> {
             // Replace fragment when the item is clicked
-            Fragment fragment = new Notes(); // Replace with your actual fragment class
+            Fragment fragment = new Pomodrome(); // Replace with your actual fragment class
             if (context instanceof FragmentActivity) {
                 FragmentActivity activity = (FragmentActivity) context;
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
@@ -56,8 +57,8 @@ public class targetDailyMonthlyAd extends RecyclerView.Adapter<targetDailyMonthl
                 fragmentTransaction.replace(R.id.container, fragment);
                 fragmentTransaction.addToBackStack(null); // Optional: add to back stack
                 fragmentTransaction.commit();
-                note = ((FragmentActivity) context).findViewById(R.id.notesNav);
-                note.setImageResource(R.drawable.notesdark);
+                pomodrome = ((FragmentActivity) context).findViewById(R.id.pomodromeNav);
+                pomodrome.setImageResource(R.drawable.pomodromedark);
                 home =((FragmentActivity) context).findViewById(R.id.homeNav);
                 home.setImageResource(R.drawable.homelight);
             }

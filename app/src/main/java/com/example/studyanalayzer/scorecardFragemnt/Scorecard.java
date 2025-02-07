@@ -1,12 +1,18 @@
-package com.example.studyanalayzer;
+package com.example.studyanalayzer.scorecardFragemnt;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.studyanalayzer.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +21,7 @@ import android.view.ViewGroup;
  */
 public class Scorecard extends Fragment {
 
+    ArrayList<tearcherScore> arrTeacherScore = new ArrayList<>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +66,15 @@ public class Scorecard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scorecard, container, false);
+        View view = inflater.inflate(R.layout.fragment_scorecard, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.ScoreRecycleView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        TearcherScoreAd tearcherScoreAd = new TearcherScoreAd(getContext(),arrTeacherScore);
+        recyclerView.setAdapter(tearcherScoreAd);
+
+        arrTeacherScore.add(new tearcherScore(22,"Shital mam","Java"));
+        arrTeacherScore.add(new tearcherScore(21,"Shita222l mam","Java"));
+        return  view ;
     }
 }

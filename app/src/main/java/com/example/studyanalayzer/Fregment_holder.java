@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.studyanalayzer.homefragment.Home;
 import com.example.studyanalayzer.notesfragment.Notes;
+import com.example.studyanalayzer.scorecardFragemnt.Scorecard;
 
 public class Fregment_holder extends AppCompatActivity {
 

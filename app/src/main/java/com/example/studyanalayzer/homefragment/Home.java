@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studyanalayzer.R;
 import com.example.studyanalayzer.homefragment.home_page_note.homePageNotes;
 import com.example.studyanalayzer.homefragment.home_page_note.homePageNotesAd;
-import com.example.studyanalayzer.homefragment.home_page_note.targetDailyMonthly.targetAchiver;
-import com.example.studyanalayzer.homefragment.home_page_note.targetDailyMonthly.targetDailyMonthlyAd;
 import com.example.studyanalayzer.homefragment.home_page_subject.homePageSubject;
 import com.example.studyanalayzer.homefragment.home_page_subject.homeSubRecycAd;
 import com.example.studyanalayzer.homefragment.mcqtest.mcqTest;
+import com.example.studyanalayzer.homefragment.targetDailyMonthly.targetAchiver;
+import com.example.studyanalayzer.homefragment.targetDailyMonthly.targetDailyMonthlyAd;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,7 @@ public class Home extends Fragment {
     ArrayList<homePageNotes>  arrHomePageNotes = new ArrayList<>();
 
 
-   private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
@@ -90,7 +90,7 @@ public class Home extends Fragment {
 
         recyclerView = view.findViewById(R.id.homeSubRecycler);
         HomeToolbar = view.findViewById(R.id.toolbar);
-         test = view.findViewById(R.id.test);
+        test = view.findViewById(R.id.test);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +105,7 @@ public class Home extends Fragment {
 
         RecyclerView recyclerViewTarget = view.findViewById(R.id.targetrecycle);
         recyclerViewTarget.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        targetDailyMonthlyAd  targetDailyMonthlyAdapter = new targetDailyMonthlyAd(getContext(),arrTargetAchiver);
+        targetDailyMonthlyAd targetDailyMonthlyAdapter = new targetDailyMonthlyAd(getContext(),arrTargetAchiver);
         recyclerViewTarget.setAdapter(targetDailyMonthlyAdapter);
 
         arrTargetAchiver.add(new targetAchiver(95,"90%\nRemining time : 1hrs","Daily Target : 6 hrs"));
@@ -132,7 +132,7 @@ public class Home extends Fragment {
 
 
 
-       // View  homeNotesView = inflater.inflate(R.layout.home_page_notes,container,false);
+        // View  homeNotesView = inflater.inflate(R.layout.home_page_notes,container,false);
 
         RecyclerView homeNotesRecycleView = view.findViewById(R.id.homeNotesRecycleView);
         homeNotesRecycleView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));

@@ -75,16 +75,17 @@
                     android:id="@+id/textView4"
                     android:layout_width="159dp"
                     android:layout_height="21dp"
-                    android:textSize="12dp"
+                    android:text="Note By : Mr Mane Sir"
                     android:textColor="@color/black"
 
-                    android:text="Note By : Mr Mane Sir"
+                    android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.962"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.425" />
+                    app:layout_constraintVertical_bias="0.425"
+                    tools:ignore="TextSizeCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
